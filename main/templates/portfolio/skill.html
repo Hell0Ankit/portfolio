@@ -1,0 +1,16 @@
+{% block content %}
+<section class="py-5 border-bottom border-warning wow fadeInUp" data-wow-delay="0.1s">
+   <h2 class="title pb-3 mb-5">Skills</h2>
+   <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6 g-4 justify-content-center">
+      <!-- One Skill Box -->
+      {% for skill in my_skill %}
+      <div class="col">
+         <div class="skill-square text-center">
+            <img src="{{ skill.icon_image.url}}" alt="Python" class="img-fluid" style="width: 50px; height: 50px;">
+            <p class="mb-0 mt-2 small">{{ skill.name}}</p>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
+</section>
+{% endblock %}

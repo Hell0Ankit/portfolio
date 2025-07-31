@@ -1,0 +1,232 @@
+/* ================= Template Variables ================= */
+:root {
+ --primary: #1c334c;
+  /* --secondary: #ffc107; */
+  --light: #F2F2F2;
+  --dark: #000000;
+  --costumbox:#1b2938;
+ 
+}
+
+/* ================= Spinner ================= */
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0s;
+}
+
+.image{
+ border-radius: 20px !important;
+}
+@media (max-width: 991.98px) {
+  .sticky-lg-top.vh-100 {
+    height: 100% !important;
+  }
+}
+
+/* ================= Utility Classes ================= */
+.fw-semi-bold {
+  font-weight: 600;
+}
+
+.fw-medium {
+  font-weight: 500;
+}
+
+/* ================= Button Square Sizes ================= */
+.btn-square, .btn-sm-square, .btn-lg-square {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, border-radius 0.3s ease;
+}
+
+.btn-square {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-sm-square {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-lg-square {
+  width: 50px;
+  height: 50px;
+}
+
+.btn-square:hover,
+.btn-sm-square:hover,
+.btn-lg-square:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.btn.btn-primary {
+  color: #ffffff;
+}
+
+/* ================= Typed Cursor ================= */
+.typed-cursor {
+  font-size: 25px;
+  color: var(--light);
+}
+
+/* ================= Custom Box ================= */
+.custom-box {
+  background: var(--costumbox) !important;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+}
+
+/* ================= Skill Square ================= */
+.skill-square {
+  background-color: #1b2938;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, border-radius 0.3s ease;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skill-square:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}
+
+.skill-square p {
+  color: #ffffff;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ================= Back to Top ================= */
+.back-to-top {
+  position: fixed;
+  display: none;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 1;
+  font-size: 30px;
+  right: 30px;
+  bottom: 30px;
+  transition: background 0.5s;
+  z-index: 11;
+  animation: action 1s infinite alternate;
+}
+
+.back-to-top i {
+  color: var(--primary);
+}
+
+.back-to-top i:hover {
+  color: var(--light);
+}
+
+@keyframes action {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-15px); }
+}
+
+/* ================= Title Underline ================= */
+.title {
+  position: relative;
+  color:#ffc107 !important ;
+  font-size: 30px;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  bottom: -4px;
+  left: 0;
+  border: 2px solid #ffc107;
+  border-radius: 50%;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 2px;
+  bottom: 0;
+  left: 15px;
+  background: #ffc107;
+  border-radius: 2px;
+
+}
+
+/* ================= Progress Bar ================= */
+.progress {
+  height: 5px;
+}
+
+.progress .progress-bar {
+  width: 0;
+  transition: width 2s;
+}
+
+/* ================= project Card ================= */  .project-card {
+    background-color: #1b2938;
+    border-radius: 20px;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .badge {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 10px;
+  }
+
+
+/* ================= Testimonial Dots ================= */
+.testimonial-carousel .owl-dots {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.testimonial-carousel .owl-dot {
+  display: inline-block;
+  margin: 0 5px;
+  width: 15px;
+  height: 15px;
+  background: var(--light);
+}
+
+.testimonial-carousel .owl-dot.active {
+  background: var(--primary);
+}

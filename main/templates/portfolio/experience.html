@@ -1,0 +1,22 @@
+{% block content %}
+ 
+         <!-- Expericence Start -->
+         <section class="py-5 border-bottom border-warning wow fadeInUp" data-wow-delay="0.1s">
+            <h2 class="title pb-3 mb-5">Expericence</h2>
+            <div class="border-start border-2 border-warning pt-2 ps-5">
+               {% for expericence_col in expericence %}
+               <div class="position-relative mb-4 ">
+                  <span class="bi bi-arrow-right fs-4 text-warning position-absolute" style="top: -5px; left: -50px;"></span>
+                  <h5 class="mb-1 text-warning"> {{expericence_col.position}}</h5>
+                  <p class="mb-2 fw-bold">{{expericence_col.duration}}</p>
+                  <p class="mb-2 fw-bold">{{expericence_col.company}}</p>
+                  <p>{{expericence_col.responsibilities}}</p>
+               </div>
+               {% endfor %}
+            </div>
+         </section>
+         <!-- Expericence End -->
+
+{% endblock  %}
+
+

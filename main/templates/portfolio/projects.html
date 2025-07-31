@@ -1,0 +1,75 @@
+{% block content %}
+<!-- Projects Start -->
+<section class="py-5 border-bottom border-warning wow fadeInUp" data-wow-delay="0.1s">
+   <h2 class="title pb-3 mb-5">Projects</h2>
+   <div class="row g-4">
+      {% for projects_data in project %}
+      <div class="col-12 col-md-6 col-lg-4">
+         <div class="project-card p-3 h-100">
+            <img src="{{ projects_data.image.url }}" class="img-fluid rounded mb-3" alt="Project Image">
+            <h5 class="fw-semibold text-warning">{{ projects_data.title }}</h5>
+            <p style="font-size:12px">{{ projects_data.description }}</p>
+            <!-- Show only first 3 tech -->
+            {% for tech in projects_data.technologies.all|slice:":3" %}
+            <span class="badge bg-warning text-dark">{{ tech.name }}</span>
+            {% endfor %}
+            <!-- More Button -->
+            {% if projects_data.technologies.all|length > 3 %}
+            <a href="" class="badge bg-warning text-dark" data-bs-toggle="modal" data-bs-target="#modal{{ forloop.counter }}">+ More</a>
+            {% endif %}
+            <!-- Icons -->
+            <div class="d-flex gap-3 mt-3">
+               <a href="{{ projects_data.git_url }}" target="_blank" title="Code">
+               <i class="bi bi-github fs-5"></i>
+               </a>
+               <a href="{{ projects_data.live_demo_url }}" target="_blank" title="Live Demo" class="text-warning">
+               <i class="bi bi-box-arrow-up-right fs-5"></i> live demo
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="modal{{ forloop.counter }}" tabindex="-1" aria-labelledby="modalLabel{{ forloop.counter }}" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content custom-box">
+               <!-- Modal Header -->
+               <div class="modal-header border-0">
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <!-- Modal Body -->
+               <div class="modal-body">
+                  <div class="row g-4">
+                     <!-- Left Side Image -->
+                     <div class="col-md-6">
+                        <img src="{{ projects_data.image.url }}" class="img-fluid rounded shadow-sm image" alt="Project Image">
+                     </div>
+                     <!-- Right Side Content -->
+                     <div class="col-md-6">
+                        <h2 class="modal-title text-warning" id="modalLabel{{ forloop.counter }}">{{ projects_data.title }}</h2>
+                        <p class="mb-3">{{ projects_data.description }}</p>
+                        <h6 class="fw-bold text-warning mb-2">Technologies Used:</h6>
+                        <div class="mb-3">
+                           {% for tech in projects_data.technologies.all %}
+                           <span class="badge bg-warning text-dark me-1 mb-1">{{ tech.name }}</span>
+                           {% endfor %}
+                        </div>
+                        <!-- Action Buttons -->
+                        <div class="d-flex gap-3">
+                           <a href="{{ projects_data.git_url }}" class="btn btn-outline-light btn-sm" target="_blank">
+                           <i class="bi bi-github"></i> GitHub
+                           </a>
+                           <a href="{{ projects_data.live_demo_url }}" class="btn btn-warning btn-sm text-dark" target="_blank">
+                           <i class="bi bi-box-arrow-up-right"></i> Live Demo
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   {% endfor %}
+</section>
+<!-- Projects End -->
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+<!-- Spinner Start -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+   <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+   </div>
+</div>
+<!-- Spinner End -->
+<div class="container">
+   <div class="row g-5">
+      <div class="col-lg-4 sticky-lg-top vh-100">
+         <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
+            <img class="w-100 img-fluid mb-4" src="{{ profile.profile_image.url }}" alt="Image">
+            <h2 class="text-primary mt-2">{{ profile.name }}</h2>
+            <h4 class="text-light py-2">{{ profile.designation }}</h4>
+            <div class="d-flex justify-content-center mt-auto mb-3">
+                {% for social in socialicon %}
+               <a class="btn btn-secondary btn-square mx-1" href="{{ social.url }}" target="blank"><i class="{{ social.icon_class }}"></i></a>
+               {% endfor %}
+            </div>
+            <div class="d-flex align-items-end justify-content-between border-top">
+               <a href="{{ buttons.cv_url }}" class="btn  w-50 border-end" target="blank">{{ buttons.button_name }}</a>
+               <a href="{{ buttons.mobile_url }}" class="btn w-50 btn-scroll" target="blank">{{ buttons.contact_button_name }}</a>
+            </div>
+         </div>
+      </div>
+      <div class="col-lg-8">
+         <!-- About Start -->
+         {% include 'portfolio/about-me.html' %}
+         <!-- About End -->
+         <!--  Start skill -->
+         {% include 'portfolio/skill.html' %}
+         <!--  End skill -->
+         <!--  Start experience -->
+         {% include 'portfolio/experience.html' %}
+         <!--  End experience -->
+         <!--  Start Education -->
+         {% include 'portfolio/education.html' %}
+         <!--  End Education -->
+         <!--  Start Projects -->
+         {% include 'portfolio/projects.html' %}
+         <!--  End Projects -->
+         <!--  Start Projects -->
+         {% include 'portfolio/footer.html' %}
+         <!--  End Projects -->
+      </div>
+   </div>
+</div>
+{% endblock  %}

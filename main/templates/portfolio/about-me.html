@@ -1,0 +1,29 @@
+{% block content %}
+<!-- About Start -->
+<section class="py-5 border-bottom border-warning wow fadeInUp" data-wow-delay="0.1s">
+   <h2 class="title pb-3 mb-5">{{about_data.title_name }}</h2>
+   <p>{{ about_data.description }}</p>
+   <div class="row mb-4">
+      <div class="container">
+         <h5 class="text-warning fw-bold mb-4">Persional Details</h5>
+         <div class="row g-3">
+            {% for personal in Personal_Details %}
+            <!-- Name -->
+            <div class="col-md-6">
+               <div class="d-flex align-items-start p-3 border rounded shadow-sm h-100">
+                  <a href="#" class="text-warning me-3 fs-4 d-inline-flex align-items-center">
+                  <i class="{{ personal.icon_class }}"></i> </a>
+                  <div>
+                     <div class="fw-bold text-warning">{{personal.label}}</div>
+                     <p>{{personal.value}}</p>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </div>
+</section>
+<!-- About End -->
+{% endblock %}
+
